@@ -16,3 +16,6 @@ apt-get install php5 libapache2-mod-php5 -y
 /etc/init.d/apache2 restart
 apt-get install php5-mysql php5-curl php5-xcache -y
 /etc/init.d/apache2 restart
+cd ~
+echo -e "<php?\nphpinfo();\n?>" >> info.php
+mv info.php /var/www/info.php
