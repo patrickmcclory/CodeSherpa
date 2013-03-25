@@ -11,8 +11,8 @@ sudo ln -s /usr/lib/redis-2.6.11/src/redis-server /usr/local/bin/redis-server
 sudo ln -s /usr/lib/redis-2.6.11/src/redis-cli /usr/local/bin/redis-cli
 cd /usr/lib/redis-2.6.11/utils
 echo '' | sudo ./install_server.sh
-apt-get install apache2
-apt-get install php5 libapache2-mod-php5
+apt-get install apache2 -y
+apt-get install php5 libapache2-mod-php5 -y
 /etc/init.d/apache2 restart
-apt-get install php5-mysql php5-curl php5-xcache
+apt-get install php5-mysql php5-curl php5-xcache -y
 /etc/init.d/apache2 restart
