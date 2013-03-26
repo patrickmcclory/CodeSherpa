@@ -71,3 +71,7 @@ mysql -pP@ssword1 -e "CREATE USER 'dbUser'@'localhost' IDENTIFIED BY 'P@ssword1'
 mysql -pP@ssword1 -e "GRANT ALL PRIVILEGES ON *.* TO 'dbUser'@'localhost' WITH GRANT OPTION;"
 mysql -pP@ssword1 -e "CREATE USER 'dbuser'@'%' IDENTIFIED BY 'P@ssword1';"
 mysql -pP@ssword1 -e "GRANT ALL PRIVILEGES ON *.* TO 'dbUser'@'%' WITH GRANT OPTION;"
+cp /~/RandomDataSets/2013flightdata.csv /var/lib/mysql/flightstats/
+mysql -pP@ssword1 << QUERY_INPUT
+LOAD DATA INFILE '2013flightdata.csv' INTO TABLE ontimeData FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' IGNORE 1 LINES;
+QUERY_INPUT

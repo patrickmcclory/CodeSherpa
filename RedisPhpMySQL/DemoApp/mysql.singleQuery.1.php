@@ -11,12 +11,13 @@ $result = mysql_query($mysqlQuery);
 if(mysql_num_rows($result) > 0)
 {
 	echo"<table cellpadding=10 border=1>";
-	
+	echo"<tr><td>CarrierID</td><td>CarrierCount</td></tr>"
+		
 	while($row = mysql_fetch_row($result))
 	{
 		echo"<tr>";
 		
-		for ($i=1; $i<=count($row); $i++)
+		for ($i=0; $i<count($row); $i++)
 		{
 			echo "<td>";
 			echo $row[$i];
