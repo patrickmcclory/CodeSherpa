@@ -1,3 +1,10 @@
+apt-get install git -y
+git clone git://github.com/patrickmcclory/RandomResearchAndDevelopment /~
+cd /~
+git config core.sparsecheckout true
+echo /RedisPhpMySQL/ > .git/info/sparse-checkout
+echo /RandomDataSets/2013flightdata.tgz >> .git/info/sparse-checkout
+git read-tree -m -u HEAD
 export DEBIAN_FRONTEND=noninteractive
 echo mysql-server-5.5 mysql-server/root_password password P@ssword1 | sudo debconf-set-selections
 echo mysql-server-5.5 mysql-server/root_password_again password P@ssword1 | sudo debconf-set-selections
@@ -19,18 +26,17 @@ apt-get install php5-mysql php5-curl php5-xcache -y
 cd ~
 echo -e "<?php\nphpinfo();\n?>" >> info.php
 mv info.php /var/www/info.php
+cp -R ~/RedisPhpMySQL/DemoApp/ /var/www/ 
 apt-get install php-pear -y
 pear channel-discover pear.nrk.io
 pear install nrk/Predis
-apt-get install git -y
 cd /usr/src
 [ -d Rediska ] || git clone git://github.com/Shumkov/Rediska.git
 cd Rediska && git pull && rsync -a ./library/ /usr/share/php
-cd ~
-wget https://s3.amazonaws.com/devDemoData/2013flightdata.tgz
+cd ~/RandomDataSets
 tar xvf 2013flightdata.tgz
 mysql -pP@ssword1 -e "CREATE DATABASE flightStats;"
-mysql -pP@ssword1 <<QUERY_INPUT
+mysql -pP@ssword1 << QUERY_INPUT
 USE flightStats; 
 CREATE TABLE ontimeData (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -60,3 +66,7 @@ CREATE TABLE ontimeData (
 	DIVERTED bit
 );
 QUERY_INPUT
+mysql -pP@ssword1 -e "CREATE USER 'dbUser'@'localhost' IDENTIFIED BY 'P@ssword1';"
+mysql -pP@ssword1 -e "GRANT ALL PRIVILEGES ON *.* TO 'dbUser'@'localhost' WITH GRANT OPTION;"
+mysql -pP@ssword1 -e "CREATE USER 'dbuser'@'%' IDENTIFIED BY 'P@ssword1';"
+mysql -pP@ssword1 -e 'GRANT ALL PRIVILEGES ON *.* TO 'dbUser'@'%' WITH GRANT OPTION;"
