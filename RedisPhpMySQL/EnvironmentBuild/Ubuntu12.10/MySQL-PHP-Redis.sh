@@ -75,3 +75,4 @@ cp /~/RandomDataSets/2013flightdata.csv /var/lib/mysql/flightstats/
 mysql -pP@ssword1 << QUERY_INPUT
 LOAD DATA INFILE '2013flightdata.csv' INTO TABLE ontimeData FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' IGNORE 1 LINES;
 QUERY_INPUT
+
