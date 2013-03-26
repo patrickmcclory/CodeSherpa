@@ -26,3 +26,37 @@ apt-get install git -y
 cd /usr/src
 [ -d Rediska ] || git clone git://github.com/Shumkov/Rediska.git
 cd Rediska && git pull && rsync -a ./library/ /usr/share/php
+cd ~
+wget https://s3.amazonaws.com/devDemoData/2013flightdata.tgz
+tar xvf 2013flightdata.tgz
+mysql -pP@ssword1 -e "CREATE DATABASE flightStats;"
+mysql -pP@ssword1 <<QUERY_INPUT
+USE flightStats; 
+CREATE TABLE ontimeData (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	YEAR int,
+	UNIQUE_CARRIER varchar(2),
+	AIRLINE_ID varchar(6),
+	TAIL_NUM varchar(6),
+	FL_NUM int,
+	ORIGIN_AIRPORT int,
+	ORIGIN_CITY int,
+	DEST_AIRPORT int, 
+	DEST_CITY int, 
+	DEP_DELAY int, 
+	DEP_DELAY_NEW int, 
+	DEP_DEL15 bit,
+	DEP_DELAY_GROUP int, 
+	TAXI_OUT int,
+	WHEELS_OFF varchar(4)
+	WHEELS_ON varchar(4)
+	TAXI_IN int, 
+	ARR_TIME varchar(4)
+	ARR_DELAY int, 
+	ARR_DELAY_NEW int, 
+	ARR_DEL15 bit, 
+	CANCELLED bit, 
+	CANCELLATION_CODE varchar(1), 
+	DIVERTED bit
+);
+QUERY_INPUT
