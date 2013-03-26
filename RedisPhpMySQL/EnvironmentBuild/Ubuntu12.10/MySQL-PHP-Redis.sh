@@ -23,17 +23,17 @@ apt-get install php5 libapache2-mod-php5 -y
 /etc/init.d/apache2 restart
 apt-get install php5-mysql php5-curl php5-xcache -y
 /etc/init.d/apache2 restart
-cd ~
+cd /~
 echo -e "<?php\nphpinfo();\n?>" >> info.php
 mv info.php /var/www/info.php
-cp -R ~/RedisPhpMySQL/DemoApp/ /var/www/ 
+cp -R /~/RedisPhpMySQL/DemoApp/* /var/www/ 
 apt-get install php-pear -y
 pear channel-discover pear.nrk.io
 pear install nrk/Predis
 cd /usr/src
 [ -d Rediska ] || git clone git://github.com/Shumkov/Rediska.git
 cd Rediska && git pull && rsync -a ./library/ /usr/share/php
-cd ~/RandomDataSets
+cd /~/RandomDataSets
 tar xvf 2013flightdata.tgz
 mysql -pP@ssword1 -e "CREATE DATABASE flightStats;"
 mysql -pP@ssword1 << QUERY_INPUT
