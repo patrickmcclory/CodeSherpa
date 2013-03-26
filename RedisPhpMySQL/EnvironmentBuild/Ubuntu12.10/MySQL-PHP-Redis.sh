@@ -39,7 +39,6 @@ mysql -pP@ssword1 -e "CREATE DATABASE flightStats;"
 mysql -pP@ssword1 << QUERY_INPUT
 USE flightStats; 
 CREATE TABLE ontimeData (
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	YEAR int,
 	UNIQUE_CARRIER varchar(2),
 	AIRLINE_ID varchar(6),
