@@ -2,7 +2,7 @@
 $mysqlServer  = "localhost";
 $mysqluserName = "dbUser";
 $mysqlPassword = "P@ssword1";
-$mysqlDBName = "flightStats"
+$mysqlDBName = "flightStats";
 
 $mysqlQuery = "select CARRIER, count(*) from ontimeData group by CARRIER;";
 ?>

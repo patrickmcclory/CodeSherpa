@@ -2,14 +2,11 @@
 
 require_once "conf/config.mysql.php";
 
-$conn=mysql_connect($mysqlServer, $mysqlUserName, $mysqlPassword, $mysqlDBName);
+$conn=mysql_connect($mysqlServer, $mysqlUserName, $mysqlPassword);
 
-if(mysqli_connect_errno())
-{
-	echo "failed to connect to mysql: " . mysqli_connect_error();
-}
+mysql_select_db($mysqlDBName);
 
-$result = mysql_query($conn, $mysqlQuery);
+$result = mysql_query($mysqlQuery);
 
 if(mysql_num_rows($result) > 0)
 {
