@@ -19,3 +19,10 @@ apt-get install php5-mysql php5-curl php5-xcache -y
 cd ~
 echo -e "<?php\nphpinfo();\n?>" >> info.php
 mv info.php /var/www/info.php
+apt-get install php-pear -y
+pear channel-discover pear.nrk.io
+pear install nrk/Predis
+apt-get install git -y
+cd /usr/src
+[ -d Rediska ] || git clone git://github.com/Shumkov/Rediska.git
+cd Rediska && git pull && rsync -a ./library/ /usr/share/php
