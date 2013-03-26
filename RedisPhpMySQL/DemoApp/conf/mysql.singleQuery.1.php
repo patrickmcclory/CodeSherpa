@@ -32,4 +32,8 @@ if(mysql_num_rows($result) > 0)
 	echo"</table>";
 }
 
+mysql_free_result($result);
+
+mysql_close($conn);
+
 ?>
