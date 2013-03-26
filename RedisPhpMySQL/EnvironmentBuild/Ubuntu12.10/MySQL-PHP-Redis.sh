@@ -48,10 +48,10 @@ CREATE TABLE ontimeData (
 	DEP_DEL15 bit,
 	DEP_DELAY_GROUP int, 
 	TAXI_OUT int,
-	WHEELS_OFF varchar(4)
-	WHEELS_ON varchar(4)
+	WHEELS_OFF varchar(4),
+	WHEELS_ON varchar(4),
 	TAXI_IN int, 
-	ARR_TIME varchar(4)
+	ARR_TIME varchar(4),
 	ARR_DELAY int, 
 	ARR_DELAY_NEW int, 
 	ARR_DEL15 bit, 
