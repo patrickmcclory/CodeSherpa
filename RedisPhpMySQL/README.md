@@ -1,0 +1,7 @@
+## Redis with PHP and MySQL
+
+The purpose of this set of examples is to show some simple examples of how to utilize Redis as a caching tier with PHP and MySQL.  While these examples aren't what I'd call 'production level code', they're meant to describe the use case, show examples of how to utilize the code and then point to other areas where this can be utilized. 
+
+This set of examples uses a dummy data set provided by the FAA showing flight statistics for 2013 through the month of March.  This data set can be found [here](https://github.com/patrickmcclory/RandomResearchAndDevelopment/blob/master/RandomDataSets/2013flightdata.tgz).  There is an [install script](https://github.com/patrickmcclory/RandomResearchAndDevelopment/blob/master/RedisPhpMySQL/EnvironmentBuild/Ubuntu12.10/MySQL-PHP-Redis.sh) included in the repo that will manage to get most of the proper assets lined up on a stock Ubuntu 12.10 instance.  I actually used this script to quickly test inside of VirtualBox so that I could validate that my setup was solid.  Most of the setup contains defaults for each install with a root password for MySQL set to P@ssword1.
+
+This example shows both a simple and complex example using [Rediska](http://rediska.geometria-lab.net/) as a plugin for PHP to access Redis which is installed via [Pear](http://pear.php.net/).  Other plugins do exist and eventually I'll be filling out the examples to show similar workflows using [Predis](https://github.com/nrk/predis) as well.
