@@ -12,7 +12,7 @@ cd /~
 echo -e "<?php\nphpinfo();\n?>" >> info.php
 mv info.php /var/www/info.php
 apt-get install rabbimq-server
-git clone git://github.com/vidlalvaro/php-ampqlib.git
+git clone git://github.com/videlalvaro/php-ampqlib.git
 cd /~/php-amqplib
 curl --silent https://getcomposer.org/installer | php
 php composer.phar install
