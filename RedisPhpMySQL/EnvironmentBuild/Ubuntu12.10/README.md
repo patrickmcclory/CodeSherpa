@@ -6,7 +6,7 @@ To do this, run the following at the command line of an Ubuntu 12.10 server inst
 
 ```shell
 wget http://bit.ly/Zzz1HH
-mv 16LQNDS install.sh
+mv Zzz1HH install.sh
 sudo chmod +x install.sh
 sudo ./install.sh
 ```
