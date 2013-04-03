@@ -12,18 +12,21 @@ cd /~
 echo -e "<?php\nphpinfo();\n?>" >> info.php
 mv info.php /var/www/info.php
 apt-get install rabbitmq-server -y
-git clone git://github.com/vidlalvaro/php-ampqlib.git
+apt-get install git -y
+cd /~
+git clone git://github.com/videlalvaro/php-amqplib.git
 cd /~/php-amqplib
 curl --silent https://getcomposer.org/installer | php
 php composer.phar install
-cd /~ 
+cp -R /~/php-amqplib/* /var/www/
 apt-get install daemontools daemontools-run -y
 cd /~
 git clone git://github.com/patrickmcclory/CodeSherpa.git
-cd /~
+cd CodeSherpa
 git config core.sparsecheckout true
 echo /RabbitMQPhpMySQL/ > .git/info/sparse-checkout
 git read-tree -m -u HEAD
+cp -R /~/CodeSherpa/RabbitMQPhpMySQL/DemoApp/* /var/www/
 mysql -pP@ssword1 -e "CREATE DATABASE demoDataStore;"
 mysql -pP@ssword1 << QUERY_INPUT
 use demoDataStore;
