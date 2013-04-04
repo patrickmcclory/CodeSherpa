@@ -1,2 +1,2 @@
 #!/bin/sh
-exec php /var/www/amqp_consumer_non_blocking_myqsl.php
+exec php /var/www/amqp_consumer_non_blocking_mysql.php
