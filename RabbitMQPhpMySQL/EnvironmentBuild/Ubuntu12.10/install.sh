@@ -6,27 +6,27 @@ apt-get install mysql-server -y
 apt-get install apache2 -y
 apt-get install php5 libapache2-mod-php5 -y
 /etc/init.d/apache2 restart
-apt-get install php5-mysql php5-curl php5-xcache php5-cli -y
+apt-get install php5-mysql php5-curl php5-cli -y
 /etc/init.d/apache2 restart
-cd /~
+cd ~
 echo -e "<?php\nphpinfo();\n?>" >> info.php
 mv info.php /var/www/info.php
 apt-get install rabbitmq-server -y
 apt-get install git -y
-cd /~
+cd ~
 git clone git://github.com/videlalvaro/php-amqplib.git
-cd /~/php-amqplib
+cd ~/php-amqplib
 curl --silent https://getcomposer.org/installer | php
 php composer.phar install
-cp -R /~/php-amqplib/* /var/www/
+cp -R ~/php-amqplib/* /var/www/
 apt-get install daemontools daemontools-run -y
-cd /~
+cd ~
 git clone git://github.com/patrickmcclory/CodeSherpa.git
 cd CodeSherpa
 git config core.sparsecheckout true
 echo /RabbitMQPhpMySQL/ > .git/info/sparse-checkout
 git read-tree -m -u HEAD
-cp -R /~/CodeSherpa/RabbitMQPhpMySQL/DemoApp/* /var/www/
+cp -R ~/CodeSherpa/RabbitMQPhpMySQL/DemoApp/* /var/www/
 mysql -pP@ssword1 -e "CREATE DATABASE demoDataStore;"
 mysql -pP@ssword1 << QUERY_INPUT
 use demoDataStore;
@@ -36,6 +36,10 @@ CREATE TABLE dataStore(
 	randomChar2 char(5)
 )
 QUERY_INPUT
+mysql -pP@ssword1 -e "CREATE USER 'dbUser'@'localhost' IDENTIFIED BY 'P@ssword1';"
+mysql -pP@ssword1 -e "GRANT ALL PRIVILEGES ON *.* TO 'dbUser'@'localhost' WITH GRANT OPTION;"
+mysql -pP@ssword1 -e "CREATE USER 'dbuser'@'%' IDENTIFIED BY 'P@ssword1';"
+mysql -pP@ssword1 -e "GRANT ALL PRIVILEGES ON *.* TO 'dbUser'@'%' WITH GRANT OPTION;"
 echo
 echo 'You can SSH into this instance on the address below:'
 ifconfig | grep 'inet addr' | grep -v '127.0.'

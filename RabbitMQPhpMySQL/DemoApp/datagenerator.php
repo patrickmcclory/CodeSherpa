@@ -13,6 +13,6 @@
     $randomChar1 = generateRandomString();
     $randomChar2 = generaterandomstring();
     
-    $insertStatement = "INSERT INTO dataStore /nVALUES('".$uniqueID."', '".$randomChar1."', '".$randomChar2."')";
+    $insertStatement = "INSERT INTO dataStore VALUES('".$uniqueID."', '".$randomChar1."', '".$randomChar2."')";
     
 ?>

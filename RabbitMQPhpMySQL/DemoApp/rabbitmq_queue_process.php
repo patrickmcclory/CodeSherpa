@@ -1,6 +1,6 @@
 <?PHP
 
-    require_once "conf/config.mysql.php";
+    require_once "datagenerator.php";
     echo $insertStatement;
     
 ?>

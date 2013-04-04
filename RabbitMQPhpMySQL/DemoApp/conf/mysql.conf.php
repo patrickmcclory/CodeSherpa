@@ -1,6 +1,6 @@
 <?php
 $mysqlServer  = "localhost";
-$mysqluserName = "dbUser";
+$mysqlUserName = "dbUser";
 $mysqlPassword = "P@ssword1";
 $mysqlDBName = "flightStats";
 ?>

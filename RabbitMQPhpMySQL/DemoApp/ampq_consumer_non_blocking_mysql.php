@@ -2,7 +2,7 @@
     
     include(__DIR__ . '/config.php');
     use PhpAmqpLib\Connection\AMQPConnection;
-    require_once "conf/config.mysql.php";
+    require_once "conf/mysql.conf.php";
     
     $exchange = 'router';
     $queue = 'msgs';
@@ -58,9 +58,9 @@
         }
         else {
             
-            $conn = mysql_connect($mysqlServer, $mysqlUserName, $mysqlPassword);
-            mysql_select_db($mysqlDBName);
-            $result = mysql_query($msg->body);
+            //$conn = mysql_connect($mysqlServer, $mysqlUserName, $mysqlPassword);
+            //mysql_select_db($mysqlDBName);
+            //$result = mysql_query($msg->body);
             
             echo "\n--------\n";
             echo "endtranid: $tranID|$result|COMPLETE\n";
