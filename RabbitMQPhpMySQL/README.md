@@ -26,8 +26,3 @@ There's a great set of information on RabbitMQ at [their site](http://www.rabbit
 In trying to limit the number of technologies being used, I decided to use Daemontools to run and host a php script as a service to listen to a queue and do 'something' with the data.  I picked this specifically for the persistence and logging features, knowing full-well that I'd much rather write a more robust service or daemon myself in java or c.  Knowing that, I took [non-blocking PHP example](https://github.com/videlalvaro/php-amqplib/blob/master/demo/amqp_consumer_non_blocking.php) provided by [Alvaro Videla](https://github.com/videlalvaro) and swapped out what it was 'doing' with a very simple mysql_query call.  Again--not rocket science here, but demonstrating the concept.  This all gets wrapped into a daemontools-hosted process that kicks logs out from the console as well.  
 
 In the [github repository](https://github.com/patrickmcclory/CodeSherpa/tree/master/RabbitMQPhpMySQL) there's a set of bash scripts that conform to [daemontools' configuration process](http://cr.yp.to/daemontools/faq/create.html#run) that get copied to /usr/local/bin/daemons/supervise/rabbitDBProcessor and then get [symlinked](http://en.wikipedia.org/wiki/Symbolic_link) to /etc/service/rabbitDBProcessor.  
-
-
-### A bunch of other stuff...
-
-
