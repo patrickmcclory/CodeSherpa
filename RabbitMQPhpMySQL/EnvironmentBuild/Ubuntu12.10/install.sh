@@ -40,6 +40,12 @@ mysql -pP@ssword1 -e "CREATE USER 'dbUser'@'localhost' IDENTIFIED BY 'P@ssword1'
 mysql -pP@ssword1 -e "GRANT ALL PRIVILEGES ON *.* TO 'dbUser'@'localhost' WITH GRANT OPTION;"
 mysql -pP@ssword1 -e "CREATE USER 'dbuser'@'%' IDENTIFIED BY 'P@ssword1';"
 mysql -pP@ssword1 -e "GRANT ALL PRIVILEGES ON *.* TO 'dbUser'@'%' WITH GRANT OPTION;"
+mkdir /usr/local/bin/daemons
+mkdir /usr/local/bin/daemons/supervise
+mkdir /usr/local/bin/daemons/supervise/rabbitDBProcessor
+mkdir /usr/local/bin/daemons/supervise/rabbitDBProcessor/supervise
+mkdir /usr/local/bin/daemons/supervise/rabbitDBProcessor/log
+cp -R ~/CodeSherpa/RabbitMQPhpMySQL/Daemon/* /usr.local.bin/daemons/supervise/rabbitDBProcessor
 echo
 echo 'You can SSH into this instance on the address below:'
 ifconfig | grep 'inet addr' | grep -v '127.0.'
