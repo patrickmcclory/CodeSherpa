@@ -4,7 +4,7 @@ To be honest, there's not much I can add to the cannonical literature found out 
 
 ### The Basics
 
-Let's get the easy stuff out of the way--if you're looking for what the heck this is, check out the [Wikipedia]9http://en.wikipedia.org/wiki/Message_queue) article on message queues--it does a significantly better job than I can in a short period of time of explaining what it does.  Since we're working with RabbitMQ, which implementes Advanced Message Queueing Protocol, it might be worthwhile to understand the internals of it as well by [checking out the article on that](http://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) too.
+Let's get the easy stuff out of the way--if you're looking for what the heck this is, check out the [Wikipedia](http://en.wikipedia.org/wiki/Message_queue) article on message queues--it does a significantly better job than I can in a short period of time of explaining what it does.  Since we're working with RabbitMQ, which implementes Advanced Message Queueing Protocol, it might be worthwhile to understand the internals of it as well by [checking out the article on that](http://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) too.
 
 Specific to RabbitMQ, again, [Wikipedia](http://en.wikipedia.org/wiki/RabbitMQ) does a good job of getting a high-level overview of the solution while [RabbitMQ's site](http://www.rabbitmq.com) does an excellent job of getting all of the details in place related to everything from usage to advanced configuration.  Specifically notable are:
 
