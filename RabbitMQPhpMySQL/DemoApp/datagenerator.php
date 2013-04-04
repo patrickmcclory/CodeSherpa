@@ -16,3 +16,4 @@
     $insertStatement = "INSERT INTO dataStore VALUES('".$uniqueID."', '".$randomChar1."', '".$randomChar2."')";
     
 ?>
+

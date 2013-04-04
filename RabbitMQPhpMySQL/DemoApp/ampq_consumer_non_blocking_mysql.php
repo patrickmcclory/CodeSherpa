@@ -1,8 +1,7 @@
 <?php
     
-    include(__DIR__ . '/config.php');
+    include(__DIR__ . '/demo/config.php');
     use PhpAmqpLib\Connection\AMQPConnection;
-    require_once "conf/mysql.conf.php";
     
     $exchange = 'router';
     $queue = 'msgs';
@@ -40,6 +39,7 @@
     
     function process_message($msg)
     {
+    	require "conf/mysql.conf.php";
         $tranID = uniqid('',true); //more_entropy means more uniqueness
         
         //log message before acting so we can roll back if daemon dies during execution
@@ -58,16 +58,14 @@
         }
         else {
             
-            //$conn = mysql_connect($mysqlServer, $mysqlUserName, $mysqlPassword);
-            //mysql_select_db($mysqlDBName);
-            //$result = mysql_query($msg->body);
+            $conn = mysqli_connect($mysqlServer, $mysqlUserName, $mysqlPassword, $mysqlDBName);
+            $result = mysqli_query($conn,$msg->body);
             
             echo "\n--------\n";
             echo "endtranid: $tranID|$result|COMPLETE\n";
             echo "\n--------\n";
             
-            mysql_free_result($result);
-            mysql_close($conn);
+            mysqli_close($conn);
         }
     }
     
