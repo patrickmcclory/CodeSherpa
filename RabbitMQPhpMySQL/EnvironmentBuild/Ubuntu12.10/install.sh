@@ -45,7 +45,13 @@ mkdir /usr/local/bin/daemons/supervise
 mkdir /usr/local/bin/daemons/supervise/rabbitDBProcessor
 mkdir /usr/local/bin/daemons/supervise/rabbitDBProcessor/supervise
 mkdir /usr/local/bin/daemons/supervise/rabbitDBProcessor/log
-cp -R ~/CodeSherpa/RabbitMQPhpMySQL/Daemon/* /usr.local.bin/daemons/supervise/rabbitDBProcessor
+cp -R ~/CodeSherpa/RabbitMQPhpMySQL/Daemon/* /usr/local/bin/daemons/supervise/rabbitDBProcessor
+ln -s /usr/local/bin/daemons/supervise/rabbitDBProcessor /etc/service/rabbitDBProcessor
+chmod 755 /etc/service/rabbitDBProcessor/run
+chmod 755 /etc/service/rabbitDBProcessor/log/run
+chmod 755 /var/www/amqp_consumer_non_blocking_mysql.php
+cd /etc/service
+#svscan &
 echo
 echo 'You can SSH into this instance on the address below:'
 ifconfig | grep 'inet addr' | grep -v '127.0.'
